@@ -5,13 +5,13 @@ import java.util.Observer;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-//³B²z­¼ªkªºclass
+//è™•ç†ä¹˜æ³•çš„class
 class Multiplication extends Observable {
-	//¨â­Ó²Õ¦¨table
+	//å…©å€‹çµ„æˆtable
 	ArrayList<Object> row = new ArrayList();
 	ArrayList<ArrayList> column = new ArrayList();
 	creator Creator;
-	//²Ä¤@½ü³]©wrow­n¥ıadd¤§«á´N§ï¥Îset¥H§K¤@ª½¼W¥[element¼Æ¶q
+	//ç¬¬ä¸€è¼ªè¨­å®šrowè¦å…ˆaddä¹‹å¾Œå°±æ”¹ç”¨setä»¥å…ä¸€ç›´å¢åŠ elementæ•¸é‡
 	int set_row_finished = 0; 
 
 	public Multiplication(creator Creator) {
@@ -19,7 +19,7 @@ class Multiplication extends Observable {
 		multiplyAll();
 	}
 
-	// multiplyAll·|±N¨â­Ólist¬Û­¼¤§«á¦s¶itable¸Ì­±
+	// multiplyAllæœƒå°‡å…©å€‹listç›¸ä¹˜ä¹‹å¾Œå­˜é€²tableè£¡é¢
 	final public void multiplyAll() {
 		for (int i = 0; i < Creator.xlist.size(); i++) {
 			for (int j = 0; j < Creator.ylist.size(); j++) {
@@ -39,9 +39,9 @@ class Multiplication extends Observable {
 		int index;
 		int val;
 		int selection = 0;
-		// §@¬°§PÂ_§ó·s­ş­Ólist¥Î
+		// ä½œç‚ºåˆ¤æ–·æ›´æ–°å“ªå€‹listç”¨
 		char list;
-		// ³qª¾observer¥Îªºobject index = 0¦sªº¬O¿ï¾Ü(°µ¤°»ò) 1¦sªº¬O§ïÅÜ«áªºtable
+		// é€šçŸ¥observerç”¨çš„object index = 0å­˜çš„æ˜¯é¸æ“‡(åšä»€éº¼) 1å­˜çš„æ˜¯æ”¹è®Šå¾Œçš„table
 		Object arg = new Object();
 
 		while (selection != 4) {
@@ -148,13 +148,13 @@ class NNString extends NNEntity {
 	}
 }
 
-// TableDisplayerªº¤¶­±
+// TableDisplayerçš„ä»‹é¢
 interface TableDisplayer {
 	public void display();
 }
 
 class numberTable implements TableDisplayer, Observer {
-	// §@¬°§PÂ_§ó·s­ş­Ólist¥Îªº
+	// ä½œç‚ºåˆ¤æ–·æ›´æ–°å“ªå€‹listç”¨çš„
 	char list;
 	Multiplication multi;
 	public numberTable(Multiplication multi) {
@@ -172,7 +172,7 @@ class numberTable implements TableDisplayer, Observer {
 	}
 
 	public void update(Observable obs, Object arg) {
-		// §âarg±qObjectÂà¦^Object[]
+		// æŠŠargå¾Objectè½‰å›Object[]
 		multi = (Multiplication)arg;
 		System.out.println("updated...");
 		display();
@@ -208,7 +208,7 @@ class stringTable implements TableDisplayer, Observer {
 	}
 }
 
-// factory ³¡¤À
+// factory éƒ¨åˆ†
 class creator {
 	public ArrayList<NNEntity> xlist = new ArrayList();
 	public ArrayList<NNEntity> ylist = new ArrayList();
@@ -216,7 +216,7 @@ class creator {
 
 public class multi_4A {
 	public static void main(String args[]) {
-		// ¼Æ¦r¬Û­¼
+		// æ•¸å­—ç›¸ä¹˜
 		creator Creat = new creator();
 		for (int i = 0; i < 4; i++) {
 			Creat.xlist.add(new NNInteger(i + 1));
@@ -229,15 +229,15 @@ public class multi_4A {
 		
 		nTable.display();
 		demo.setList();
-		// ¼Æ¦r¬Û­¼µ²§ô
+		// æ•¸å­—ç›¸ä¹˜çµæŸ
 		/*
-		 * //¦r¦ê¬Û¥[ StringCreator strCreate = new StringCreator();
-		 * strCreate.createTable(); //³]©wxlist strCreate.xlist[0] = new
-		 * NNString("¦w"); strCreate.xlist[1] = new NNString("§A");
-		 * strCreate.xlist[2] = new NNString("ÙT"); //³]©wylist strCreate.ylist[0]
-		 * = new NNString("¦w"); strCreate.ylist[1] = new NNString("¦n");
-		 * strCreate.ylist[2] = new NNString("°Õ"); strCreate.show =
-		 * strCreate.make_Table(); strCreate.showTable(); //¦r¦ê¬Û¥[µ²§ô
+		 * //å­—ä¸²ç›¸åŠ  StringCreator strCreate = new StringCreator();
+		 * strCreate.createTable(); //è¨­å®šxlist strCreate.xlist[0] = new
+		 * NNString("å®‰"); strCreate.xlist[1] = new NNString("ä½ ");
+		 * strCreate.xlist[2] = new NNString("æ°"); //è¨­å®šylist strCreate.ylist[0]
+		 * = new NNString("å®‰"); strCreate.ylist[1] = new NNString("å¥½");
+		 * strCreate.ylist[2] = new NNString("å•¦"); strCreate.show =
+		 * strCreate.make_Table(); strCreate.showTable(); //å­—ä¸²ç›¸åŠ çµæŸ
 		 */
 	}
 }
